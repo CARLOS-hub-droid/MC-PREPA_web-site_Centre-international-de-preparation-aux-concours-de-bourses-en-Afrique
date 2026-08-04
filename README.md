@@ -1,4 +1,4 @@
-# MC-PREPA — Centre international de préparation aux concours
+# MC-PREPA : Centre international de préparation aux concours
 
 **MC-PREPA** est un centre de préparation en ligne et en présentiel aux concours de bourse et grandes écoles africaines (ISSEA/ENSEA, IFORD, EAMAC, EAMAU, IIA, concours de niveau Licence et Baccalauréat), fondé et dirigé par **Kouetsa Carlos**.
 
@@ -9,7 +9,7 @@
 
 Ce dépôt présente un **aperçu du design** de la plateforme web MC-PREPA, développée pour digitaliser l'accompagnement des élèves : programmes détaillés, cours par matière, corrigés d'annales, devoirs hebdomadaires notés, suivi personnalisé et espace formateurs.
 
-⚠️ **Ce dépôt ne contient qu'un extrait de démonstration** (structure visuelle et feuille de style), volontairement limité. Le code source complet — logique applicative, base de données, authentification, gestion des paiements et des comptes utilisateurs — n'est **pas public**, afin de protéger le fonctionnement du site.
+⚠️ **Ce dépôt ne contient qu'un extrait de démonstration** (structure visuelle et feuille de style), volontairement limité. Le code source complet (logique applicative, base de données, authentification, gestion des paiements et des comptes utilisateurs) n'est **pas public**, afin de protéger le fonctionnement du site.
 
 ## Fonctionnalités de la plateforme (aperçu)
 
