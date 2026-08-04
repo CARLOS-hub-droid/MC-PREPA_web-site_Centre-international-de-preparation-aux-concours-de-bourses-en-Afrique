@@ -1,0 +1,185 @@
+<!--
+  MC-PREPA — Extrait de démonstration (design uniquement)
+  ─────────────────────────────────────────────────────────
+  Ceci est un EXTRAIT partiel du site MC-PREPA, publié uniquement à titre
+  de démonstration visuelle. Il ne contient ni la logique métier, ni la
+  configuration de base de données, ni les fonctionnalités d'administration,
+  d'authentification, de paiement ou de gestion des élèves du site réel.
+  Le code complet et fonctionnel n'est pas public.
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC-PREPA — Aperçu du design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2A52;
+  --navy-deep:#081A38;
+  --gold:#C9A227;
+  --gold-light:#E9CE6E;
+  --red:#8C1D24;
+  --bg:#F3F5F8;
+  --card:#FFFFFF;
+  --ink:#12213B;
+  --ink-soft:#54627A;
+  --border:#E1E6EE;
+  --green:#1F7A4D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;letter-spacing:-0.01em;color:var(--navy-deep);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'IBM Plex Mono',monospace;font-size:.95rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--red);
+  margin-bottom:1rem;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.7rem;border-radius:3px;border:none;
+  font-weight:700;font-size:.92rem;text-decoration:none;
+  cursor:pointer;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 6px 18px rgba(201,162,39,.35);}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+.btn-whatsapp{background:var(--green);color:#fff;}
+.btn-sm{padding:.55rem 1.1rem;font-size:.82rem;}
+
+/* ── NAV ── */
+nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;}
+.nav-inner{max-width:1180px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;color:var(--navy-deep);}
+.nav-logo .mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:var(--navy-deep);
+  color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.8rem;
+}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links button{background:none;border:none;color:var(--ink-soft);font-weight:600;font-size:.88rem;padding:.3rem 0;border-bottom:2px solid transparent;cursor:pointer;}
+.nav-links button:hover{color:var(--navy);border-color:var(--gold);}
+.nav-actions{display:flex;gap:.6rem;align-items:center;}
+@media(max-width:900px){.nav-links{display:none;}}
+
+/* ── HERO ── */
+#hero{padding:4.5rem 0 3rem;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+.hero-title{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.06;margin-bottom:1.1rem;}
+.hero-title em{font-style:normal;color:var(--red);}
+.hero-sub{color:var(--ink-soft);font-size:1.08rem;max-width:520px;margin-bottom:1.6rem;}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.hero-credit{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-soft);}
+.hero-panel{background:var(--navy-deep);border-radius:10px;padding:1.6rem;color:#fff;}
+.hero-panel h3{color:var(--gold-light);font-size:1rem;margin-bottom:1rem;}
+.mini-course{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.88rem;}
+.mini-course .tag{color:var(--gold-light);font-family:'IBM Plex Mono',monospace;font-size:.78rem;}
+.stamp{
+  position:absolute;top:1rem;right:2rem;width:96px;height:96px;border-radius:50%;
+  border:2px dashed var(--gold);display:flex;align-items:center;justify-content:center;
+  text-align:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:700;
+  color:var(--navy);letter-spacing:.05em;transform:rotate(8deg);
+}
+@media(max-width:900px){.stamp{display:none;}}
+
+/* ── STATS BAND ── */
+.stats-band{background:var(--navy-deep);color:#fff;}
+.stats-inner{max-width:1180px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;}
+.stats-inner .num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--gold-light);}
+.stats-inner .lbl{font-size:.8rem;color:#B9C4D6;margin-top:.2rem;}
+@media(max-width:700px){.stats-inner{grid-template-columns:1fr 1fr;}}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-deep);color:#B9C4D6;padding:3rem 0 1.5rem;margin-top:3rem;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:700px){.foot-grid{grid-template-columns:1fr;}}
+footer h4{color:#fff;font-size:.95rem;margin-bottom:.9rem;}
+footer a{color:#B9C4D6;text-decoration:none;display:block;margin-bottom:.5rem;font-size:.86rem;}
+footer a:hover{color:var(--gold-light);}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.2rem;text-align:center;font-size:.78rem;color:#8393AC;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><span class="mark">MC</span> MC-PREPA</div>
+    <ul class="nav-links">
+      <li><button>Accueil</button></li>
+      <li><button>Aperçu</button></li>
+      <li><button>Concours</button></li>
+      <li><button>Ressources</button></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-outline btn-sm">Espace Élève</button>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap" style="position:relative;">
+    <div class="stamp">MC-PREPA<br>CENTRE AGRÉÉ<br>PRÉPARATION</div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">🎓 Centre international de préparation aux concours</div>
+        <h1 class="hero-title">Préparez votre <em>admission</em> aux grandes écoles africaines.</h1>
+        <p class="hero-sub">ISSEA/ENSEA, IFORD, EAMAC, EAMAU, IIA et concours académiques : programmes détaillés, cours, corrigés d'annales et devoirs notés chaque semaine, encadrés par une équipe de formateurs qualifiés.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#">Voir les concours préparés</a>
+          <a class="btn btn-whatsapp" href="#">💬 Écrire sur WhatsApp</a>
+        </div>
+        <div class="hero-credit">🏅 <span><strong>Taux de réussite MC-PREPA</strong> - voir le détail par année ci-dessous</span></div>
+      </div>
+      <div class="hero-panel">
+        <h3>Concours couverts</h3>
+        <div class="mini-course"><span>IFORD - Voie A</span><span class="tag">N°001</span></div>
+        <div class="mini-course"><span>ISE - Option Mathématiques</span><span class="tag">N°003</span></div>
+        <div class="mini-course"><span>EAMAC - Cycles généraux</span><span class="tag">N°007</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat"><div class="num">13</div><div class="lbl">Concours et cycles préparés</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">Corrections d'annales par MC-PREPA</div></div>
+    <div class="stat"><div class="num">7j/7</div><div class="lbl">Suivi personnalisé en ligne</div></div>
+    <div class="stat"><div class="num">Dim. 22h</div><div class="lbl">Note hebdomadaire finalisée</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>MC-PREPA</h4>
+        <p style="font-size:.86rem;">Centre de préparation et de suivi personnalisé en ligne et en présentiel aux concours de bourse.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#">📞 WhatsApp</a>
+        <a href="#">✉️ Email</a>
+      </div>
+      <div>
+        <h4>Liens</h4>
+        <a href="#">Concours préparés</a>
+        <a href="#">Communauté</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 MC-PREPA - Kouetsa Carlos. Tous droits réservés.</div>
+  </div>
+</footer>
+
+</body>
+</html>
